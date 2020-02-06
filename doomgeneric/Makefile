@@ -16,7 +16,7 @@ CC=i686-pc-skift-gcc  # gcc or g++
 CFLAGS+=-ggdb3 -O2
 LDFLAGS+=-Wl,--gc-sections
 CFLAGS+=-ggdb3 -Wall -DNORMALUNIX -DLINUX -DSNDSERV # -DUSEASM
-LIBS+=-lsystem -lposix -lmath
+LIBS+=-lgraphic -lsystem -lposix -lmath
 
 # subdirectory for objects
 OBJDIR=build
@@ -51,4 +51,3 @@ $(OBJDIR)/%.o:	%.c
 
 print:
 	@echo OBJS: $(OBJS)
-
