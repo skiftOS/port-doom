@@ -16,7 +16,7 @@ CC=i686-pc-skift-gcc  # gcc or g++
 CFLAGS+=-ggdb3 -O2
 LDFLAGS+=-Wl,--gc-sections
 CFLAGS+=-ggdb3 -Wall -DNORMALUNIX -DLINUX -DSNDSERV # -DUSEASM
-LIBS+=-lgraphic -lsystem -lposix -lmath
+LIBS+=-lgraphic -lsystem -lcompat -lmath
 
 # subdirectory for objects
 OBJDIR=build

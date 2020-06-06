@@ -1,20 +1,19 @@
-#include <libgraphic/framebuffer.h>
-#include <libsystem/cstring.h>
-#include <libsystem/logger.h>
+#include <libgraphic/Framebuffer.h>
+#include <libsystem/CString.h>
+#include <libsystem/Logger.h>
 #include <libsystem/process/Process.h>
-#include <libsystem/system.h>
+#include <libsystem/System.h>
 
 #include "doomgeneric.h"
 
 static uint started_tick;
-static framebuffer_t *framebuffer;
+static Framebuffer *framebuffer;
 
 void DG_Init()
 {
     started_tick = system_get_ticks();
 
     framebuffer = framebuffer_open();
-    framebuffer_set_mode(framebuffer, DOOMGENERIC_RESX, DOOMGENERIC_RESY);
 }
 
 void DG_DrawFrame()
