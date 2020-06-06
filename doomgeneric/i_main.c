@@ -30,29 +30,22 @@
 // calls all startup code, parses command line options.
 //
 
-void D_DoomMain (void);
+void D_DoomMain(void);
 
 void M_FindResponseFile(void);
 
 void dg_Create();
 
-
 int main(int argc, char **argv)
 {
-    // save arguments
-
     myargc = argc;
     myargv = argv;
 
     M_FindResponseFile();
 
-    // start doom
-    printf("Starting D_DoomMain\r\n");
-    
-	dg_Create();
+    dg_Create();
 
-	D_DoomMain ();
+    D_DoomMain();
 
     return 0;
 }
-

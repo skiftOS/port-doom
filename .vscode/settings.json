@@ -1,0 +1,8 @@
+{
+    "C_Cpp.default.includePath": [
+        "/home/nicolas/Projects/skift/libraries"
+    ],
+    "files.associations": {
+        "condition_variable": "c"
+    }
+}
