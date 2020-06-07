@@ -52,6 +52,9 @@ static int convertToDoomKey(Key key)
     case KEYBOARD_KEY_DOWN:
         doom_key = KEY_DOWNARROW;
         break;
+    case KEYBOARD_KEY_TAB:
+        doom_key = KEY_TAB;
+        break;
     case KEYBOARD_KEY_LCTRL:
     case KEYBOARD_KEY_RCTRL:
         doom_key = KEY_FIRE;
@@ -62,6 +65,43 @@ static int convertToDoomKey(Key key)
     case KEYBOARD_KEY_LSHIFT:
     case KEYBOARD_KEY_RSHIFT:
         doom_key = KEY_RSHIFT;
+        break;
+
+    case KEYBOARD_KEY_F1:
+        doom_key = KEY_F1;
+        break;
+    case KEYBOARD_KEY_F2:
+        doom_key = KEY_F2;
+        break;
+    case KEYBOARD_KEY_F3:
+        doom_key = KEY_F3;
+        break;
+    case KEYBOARD_KEY_F4:
+        doom_key = KEY_F4;
+        break;
+    case KEYBOARD_KEY_F5:
+        doom_key = KEY_F5;
+        break;
+    case KEYBOARD_KEY_F6:
+        doom_key = KEY_F6;
+        break;
+    case KEYBOARD_KEY_F7:
+        doom_key = KEY_F7;
+        break;
+    case KEYBOARD_KEY_F8:
+        doom_key = KEY_F8;
+        break;
+    case KEYBOARD_KEY_F9:
+        doom_key = KEY_F9;
+        break;
+    case KEYBOARD_KEY_F10:
+        doom_key = KEY_F10;
+        break;
+    case KEYBOARD_KEY_F11:
+        doom_key = KEY_F11;
+        break;
+    case KEYBOARD_KEY_F12:
+        doom_key = KEY_F12;
         break;
     default:
         doom_key = 'y';
@@ -180,7 +220,7 @@ int DG_GetKey(int *pressed, unsigned char *doomKey)
     }
 
     int key_data;
-    ringbuffer_read(g_doom_widget->keybuffer, (const char *)&key_data, sizeof(key_data));
+    ringbuffer_read(g_doom_widget->keybuffer, (char *)&key_data, sizeof(key_data));
 
     *pressed = key_data >> 8;
     *doomKey = key_data & 0xFF;
