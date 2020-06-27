@@ -1561,7 +1561,7 @@ static void WI_loadUnloadData(load_callback_t callback)
     {
 	for (i=0 ; i<NUMCMAPS ; i++)
 	{
-	    DEH_snprintf(name, 9, "CWILV%2d", i);
+	    DEH_snprintf(name, 9, "CWILV%02d", i);
             callback(name, &lnames[i]);
 	}
     }

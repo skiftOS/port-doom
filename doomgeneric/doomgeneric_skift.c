@@ -127,7 +127,6 @@ void doom_widget_event(DoomWidget *widget, Event *event)
         logger_trace("Release");
         int key_data = convertToDoomKey(event->keyboard.key);
         ringbuffer_write(widget->keybuffer, (const char *)&key_data, sizeof(key_data));
-
         event->accepted = true;
     }
 }
@@ -170,16 +169,14 @@ void DG_Init()
 
     application_initialize(0, NULL);
 
-    g_window = window_create(
-        "application",
-        "Doom",
-        DOOMGENERIC_RESX,
-        DOOMGENERIC_RESY,
-        WINDOW_RESIZABLE);
+    g_window = window_create(WINDOW_RESIZABLE);
+
+    window_set_title(g_window, "DOOM");
+    window_set_size(g_window, vec2i(DOOMGENERIC_RESX, DOOMGENERIC_RESY));
 
     g_doom_widget = doom_widget_create(window_root(g_window));
 
-    window_set_focused_widget(g_window, g_doom_widget);
+    window_set_focused_widget(g_window, WIDGET(g_doom_widget));
 
     window_show(g_window);
 }
@@ -230,4 +227,5 @@ int DG_GetKey(int *pressed, unsigned char *doomKey)
 
 void DG_SetWindowTitle(const char *title)
 {
+    window_set_title(g_window, title);
 }

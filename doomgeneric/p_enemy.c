@@ -1523,11 +1523,6 @@ void A_PainDie (mobj_t* actor)
     A_PainShootSkull (actor, actor->angle+ANG270);
 }
 
-
-
-
-
-
 void A_Scream (mobj_t* actor)
 {
     int		sound;

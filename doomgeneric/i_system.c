@@ -51,6 +51,10 @@
 #include "w_wad.h"
 #include "z_zone.h"
 
+#include <libsystem/Logger.h>
+#include <libsystem/io/Stream.h>
+#include <libwidget/Application.h>
+
 #ifdef __MACOSX__
 #include <CoreFoundation/CFUserNotification.h>
 #endif
@@ -453,6 +457,11 @@ void I_Error (char *error, ...)
         ZenityErrorBox(msgbuf);
     }
 #endif
+
+    logger_error("%s", msgbuf);
+    stream_write(err_stream, msgbuf, strlen(msgbuf));
+    application_exit(-1);
+    
 
     // abort();
 #if ORIGCODE
